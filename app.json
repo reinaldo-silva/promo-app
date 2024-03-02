@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "myApp",
     "name": "PromoApp",
     "slug": "PromoApp",
     "version": "1.0.0",
@@ -24,7 +25,15 @@
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/favicon.png",
+      "bundler": "metro"
+    },
+    "experiments": {
+      "typedRoutes": true,
+      "tsconfigPaths": true
+    },
+    "plugins": [
+      "expo-router"
+    ]
   }
 }
