@@ -1,23 +1,23 @@
 ## PromoApp
 
-### Requisitos funcionais
+### Requisitos Funcionais
 
-- [ ] Todos os usuários devem ter uam conta com os seguintes dados: Nome, telefone, foto e email
+- [ ] Todos os usuários devem possuir uma conta com as seguintes informações: Nome, telefone, foto e email.
 
-### Requisitos não funcionais
+### Requisitos Não Funcionais
 
-- [ ] O sistema será desenvolvido para ios e android
+- [ ] O sistema será desenvolvido para iOS e Android.
 
 ### Telas
 
-- [ ] Home - Tela onde será listado todas as promoções recentes e mais próximas do usuário
+- [ ] **Home:** Tela onde serão listadas todas as promoções recentes e mais próximas do usuário.
 
-- [ ] Mapa - Mostrara todas promocoes proximas ao usuário dentro do mapa
+- [ ] **Mapa:** Mostrará todas as promoções próximas ao usuário dentro do mapa.
 
-- [ ] Nova Promoção - Tela onde o usuário poderá cadastrar uma nova promoção
+- [ ] **Nova Promoção:** Tela onde o usuário poderá cadastrar uma nova promoção.
 
-- [ ] Login - Tela onde o usuário poderá entrar no aplicativo
+- [ ] **Login:** Tela onde o usuário poderá entrar no aplicativo.
 
-- [ ] Cadastro - Tela onde o usuário poderá criar uma nova conta
+- [ ] **Cadastro:** Tela onde o usuário poderá criar uma nova conta.
 
-- [ ] Perfil do usuário - Tela onde o usuário poderá ver seus dados pessoais e estatisticas dentro no app
+- [ ] **Perfil do Usuário:** Tela onde o usuário poderá visualizar seus dados pessoais e estatísticas dentro do aplicativo.
