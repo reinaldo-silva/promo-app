@@ -6,7 +6,7 @@ interface Props extends TextProps {}
 export function Text({ className, ...rest }: Props) {
   return (
     <TextRN
-      className={clsx(className, "font-poppinsRegular text-zinc-400")}
+      className={clsx("font-poppinsRegular text-zinc-300", className)}
       {...rest}
     />
   );
