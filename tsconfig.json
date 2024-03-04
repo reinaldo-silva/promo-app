@@ -11,6 +11,10 @@
     "resolveJsonModule": true,
     "baseUrl": "./src",
     "paths": {
+      "@components/*": ["./components/*"],
+      "@pages/*": ["./app/*"],
+      "@contexts/*": ["./contexts/*"],
+      "@styles/*": ["./styles/*"],
       "@/*": ["./*"]
     },
     "types": ["react", "react-native"]

@@ -1,32 +1,42 @@
+import { AppContextProvider } from "@/contexts/appContext";
+import "@/styles/global.css";
 import { Stack } from "expo-router";
 
 export default function Layout() {
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#fff",
-        },
-        headerTintColor: "#000",
-        headerTitleStyle: {
-          fontWeight: "bold",
-        },
-      }}
-    >
-      <Stack.Screen
-        name="index"
-        options={{
-          // Hide the header for all other routes.
-          headerShown: false,
+    <AppContextProvider>
+      <Stack
+        screenOptions={{
+          gestureEnabled: true,
+          headerStyle: {
+            backgroundColor: "#fff",
+          },
+          headerTintColor: "#000",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
         }}
-      />
-      <Stack.Screen
-        name="modal"
-        options={{
-          // Set the presentation mode to modal for our modal route.
-          presentation: "modal",
-        }}
-      />
-    </Stack>
+      >
+        <Stack.Screen
+          name="login"
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name="index"
+          options={{
+            headerShown: false,
+          }}
+        />
+
+        <Stack.Screen
+          name="modal"
+          options={{
+            presentation: "modal",
+          }}
+        />
+      </Stack>
+    </AppContextProvider>
   );
 }
