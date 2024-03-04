@@ -10,14 +10,16 @@ import {
 import colors from "tailwindcss/colors";
 
 import { Text } from "@components/Text";
+import { SpinnerIcon } from "./SpinnerIcon";
 
 interface Props extends TouchableOpacityProps {
   text?: string;
   icon?: any;
+  loading?: boolean;
 }
 
 const Button = forwardRef<TouchableOpacity, Props>(
-  ({ className, children, icon, text, ...rest }, ref) => {
+  ({ className, children, icon, text, loading = false, ...rest }, ref) => {
     const animatedValue = new Animated.Value(1);
 
     const onPressIn = () => {
@@ -49,7 +51,7 @@ const Button = forwardRef<TouchableOpacity, Props>(
         {text ? (
           <Animated.View
             style={{ transform: [{ translateX: animatedValue }] }}
-            className="z-10 h-full flex-row items-center rounded-lg bg-blue-500 pl-4 pr-8 shadow"
+            className="z-10 h-full flex-row items-center rounded-lg bg-red-500 pl-4 pr-8 shadow"
           >
             <Text className="font-poppinsSemiBold !text-zinc-100">{text}</Text>
           </Animated.View>
@@ -58,8 +60,12 @@ const Button = forwardRef<TouchableOpacity, Props>(
         )}
 
         {icon && (
-          <View className="absolute right-0 top-0 flex h-full w-auto flex-row items-center rounded-r-lg bg-blue-800 px-3">
-            <Feather name="arrow-right" size={20} color={colors.zinc[100]} />
+          <View className="absolute right-0 top-0 flex h-full w-auto flex-row items-center rounded-r-lg bg-red-900 px-3">
+            {loading ? (
+              <SpinnerIcon />
+            ) : (
+              <Feather name="arrow-right" size={20} color={colors.red[50]} />
+            )}
           </View>
         )}
       </TouchableOpacity>

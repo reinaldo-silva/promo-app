@@ -1,15 +1,17 @@
-import Feather from "@expo/vector-icons/Feather";
 import clsx from "clsx";
 import { Link } from "expo-router";
-import { TouchableOpacity, View } from "react-native";
-import colors from "tailwindcss/colors";
+import { View } from "react-native";
 
 import { Button } from "@components/Button";
 import { Heading } from "@components/Heading";
 import { TextInput } from "@components/Input";
+import { SignInGithub } from "@components/SignInGithub";
 import { Text } from "@components/Text";
+import { useState } from "react";
 
 export default function Home() {
+  const [loading, setLoading] = useState(false);
+
   return (
     <View className={clsx("flex-1 items-start bg-zinc-900 p-4 py-12")}>
       <View className="h-20 w-20 items-center justify-center rounded-full bg-zinc-500">
@@ -40,7 +42,12 @@ export default function Home() {
           <Link href="/login">
             <Text>Esqueceu a senha?</Text>
           </Link>
-          <Button text="Logar" icon="mail" />
+          <Button
+            text="Logar"
+            icon="mail"
+            onPress={() => setLoading((oldValue) => !oldValue)}
+            loading={loading}
+          />
         </View>
 
         <View className="relative my-6 w-full border border-zinc-400">
@@ -49,16 +56,7 @@ export default function Home() {
           </Text>
         </View>
 
-        <TouchableOpacity activeOpacity={0.7}>
-          <View className="w-full flex-row items-center gap-6 rounded-lg border border-zinc-600 bg-zinc-700 px-2 py-4">
-            <View className="h-full flex-row items-center border-r border-zinc-600 px-6 py-2">
-              <Feather name="github" color={colors.zinc[100]} size={18} />
-            </View>
-            <Text className="font-poppinsSemiBold text-zinc-300">
-              Entrar com o Github
-            </Text>
-          </View>
-        </TouchableOpacity>
+        <SignInGithub />
       </View>
 
       <View className="w-full justify-between">
