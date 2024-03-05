@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "name": "Reinaldo Silva",
+      "password": "12345678",
+      "email": "reinaldo.silva.jr@outlook.com",
+      "phone": "17991115889"
+    }
+  ]
+}

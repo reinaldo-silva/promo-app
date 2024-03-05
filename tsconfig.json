@@ -15,6 +15,8 @@
       "@pages/*": ["./app/*"],
       "@contexts/*": ["./contexts/*"],
       "@styles/*": ["./styles/*"],
+      "@services/*": ["./services/*"],
+      "@hooks/*": ["./hooks/*"],
       "@/*": ["./*"]
     },
     "types": ["react", "react-native"]
