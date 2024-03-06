@@ -16,8 +16,20 @@
 
 - [ ] **Nova Promoção:** Tela onde o usuário poderá cadastrar uma nova promoção.
 
+- [ ] **Avaliação da Promoção:** Tela onde o usuário informará se a promoção é válida.
+
 - [ ] **Login:** Tela onde o usuário poderá entrar no aplicativo.
 
 - [ ] **Cadastro:** Tela onde o usuário poderá criar uma nova conta.
 
 - [ ] **Perfil do Usuário:** Tela onde o usuário poderá visualizar seus dados pessoais e estatísticas dentro do aplicativo.
+
+### Ajustes Visuais
+
+- [ ] Tabs componente
+
+- [ ] Ticket componente
+
+- [ ] Input componente
+
+- [ ] Carregamento de tela antes de entrar nela
