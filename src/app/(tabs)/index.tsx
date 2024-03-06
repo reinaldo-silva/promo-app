@@ -7,7 +7,6 @@ import colors from "tailwindcss/colors";
 
 import { Button } from "@components/Button";
 import { TextInput } from "@components/Input";
-import { Logo } from "@components/Logo";
 import { Text } from "@components/Text";
 import { Ticket } from "@components/Ticket";
 
@@ -30,16 +29,17 @@ export default function Home() {
 
   return (
     <View
-      className="flex-1 items-start gap-4 bg-zinc-900 pb-5 pt-2"
+      className="flex-1 items-start gap-4 bg-zinc-900 pb-5 pt-24"
       style={{ paddingBottom: bottom + 100 }}
     >
-      <Logo orientation="row" />
-
       <View className="w-full gap-1 px-4">
         <View className="w-full flex-row items-end gap-4">
-          <TextInput.Content className="flex-1">
+          <TextInput.Content className="h-14 flex-1">
             <TextInput.Icon name="search" />
-            <TextInput.Input placeholder="Ex: Coca-cola..." />
+            <TextInput.Input
+              placeholder="Ex: Coca-cola..."
+              className="h-full"
+            />
           </TextInput.Content>
 
           <Button disabled={false} onPress={() => {}} loading={false}>

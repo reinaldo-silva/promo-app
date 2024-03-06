@@ -12,9 +12,10 @@ interface Props {
 export function Logo({ orientation = "column" }: Props) {
   return (
     <View
-      className={clsx("w-full gap-2 px-4", {
+      className={clsx("w-full gap-2 px-4 py-2", {
         "flex-col items-center": orientation === "column",
-        "flex-row items-end": orientation === "row",
+        "absolute flex-row items-end border-b-[0.5px] border-zinc-800 bg-zinc-900/90 shadow-sm !backdrop-blur-2xl":
+          orientation === "row",
       })}
     >
       <MaterialCommunityIcons

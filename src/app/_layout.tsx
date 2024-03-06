@@ -1,5 +1,6 @@
 import { AppContextProvider } from "@/contexts/appContext";
 import "@/styles/global.css";
+import { Logo } from "@components/Logo";
 import { Stack } from "expo-router";
 
 export default function Layout() {
@@ -26,7 +27,10 @@ export default function Layout() {
         <Stack.Screen
           name="(tabs)"
           options={{
-            headerShown: false,
+            headerShown: true,
+            header: (props) => {
+              return <Logo orientation="row" />;
+            },
           }}
         />
 

@@ -1,7 +1,7 @@
 import { AntDesign } from "@expo/vector-icons";
 import Feather from "@expo/vector-icons/Feather";
 import clsx from "clsx";
-import { Tabs, Link } from "expo-router";
+import { Link, Tabs } from "expo-router";
 import { TouchableOpacity, View } from "react-native";
 import colors from "tailwindcss/colors";
 
@@ -80,6 +80,16 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
+        name="settings"
+        options={{
+          title: "Sobre",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Feather size={size} name="settings" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="index"
         options={{
           title: "Home",
@@ -90,7 +100,7 @@ export default function TabLayout() {
         }}
       />
       <Tabs.Screen
-        name="list"
+        name="new"
         options={{
           title: "Home",
           headerShown: false,
@@ -123,6 +133,16 @@ export default function TabLayout() {
           headerShown: false,
           tabBarIcon: ({ color, size }) => (
             <Feather size={size} name="map-pin" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="account"
+        options={{
+          title: "Sobre",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Feather size={size} name="user" color={color} />
           ),
         }}
       />
