@@ -10,6 +10,7 @@ module.exports = {
         poppinsMedium: ["Poppins_500Medium"],
         poppinsSemiBold: ["Poppins_600SemiBold"],
         poppinsBold: ["Poppins_700Bold"],
+        poppinsExtraBold: ["Poppins_800ExtraBold"],
       },
     },
   },

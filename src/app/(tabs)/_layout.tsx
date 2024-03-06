@@ -1,0 +1,131 @@
+import { AntDesign } from "@expo/vector-icons";
+import Feather from "@expo/vector-icons/Feather";
+import clsx from "clsx";
+import { Tabs, Link } from "expo-router";
+import { TouchableOpacity, View } from "react-native";
+import colors from "tailwindcss/colors";
+
+import { Text } from "@components/Text";
+
+export default function TabLayout() {
+  return (
+    <Tabs
+      tabBar={({ insets, state, descriptors, navigation }) => {
+        return (
+          <View
+            className="absolute w-full items-center"
+            style={{ paddingBottom: insets.bottom + 16, bottom: 0 }}
+          >
+            <View className="absolute left-0">
+              <Link href="/login">
+                <Text>Login</Text>
+              </Link>
+            </View>
+            <View className="flex-row gap-2 rounded-3xl border border-zinc-700 bg-zinc-800 p-2 shadow-sm">
+              {state.routes.map((route, index) => {
+                const { options } = descriptors[route.key];
+                const isFocused = state.index === index;
+
+                const onPress = () => {
+                  const event = navigation.emit({
+                    type: "tabPress",
+                    target: route.key,
+                    canPreventDefault: true,
+                  });
+
+                  if (!isFocused && !event.defaultPrevented) {
+                    navigation.navigate(route.name, route.params);
+                  }
+                };
+
+                const onLongPress = () => {
+                  navigation.emit({
+                    type: "tabLongPress",
+                    target: route.key,
+                  });
+                };
+
+                const Icon = !!options.tabBarIcon ? (
+                  options.tabBarIcon({
+                    color: isFocused ? colors.red[500] : colors.zinc[600],
+                    focused: isFocused,
+                    size: 28,
+                  })
+                ) : (
+                  <Text>Icon</Text>
+                );
+
+                return (
+                  <TouchableOpacity
+                    activeOpacity={0.9}
+                    key={index}
+                    accessibilityRole="button"
+                    accessibilityState={isFocused ? { selected: true } : {}}
+                    accessibilityLabel={options.tabBarAccessibilityLabel}
+                    testID={options.tabBarTestID}
+                    onPress={onPress}
+                    onLongPress={onLongPress}
+                    className={clsx("rounded-2xl p-3", {
+                      "": isFocused && index !== 1,
+                      "bg-transparent": !isFocused,
+                    })}
+                  >
+                    {Icon}
+                  </TouchableOpacity>
+                );
+              })}
+            </View>
+          </View>
+        );
+      }}
+    >
+      <Tabs.Screen
+        name="index"
+        options={{
+          title: "Home",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Feather size={size} name="list" color={color} />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="list"
+        options={{
+          title: "Home",
+          headerShown: false,
+          tabBarIcon: ({ focused }) => (
+            <View className="relative w-24">
+              <View
+                className={clsx(
+                  "absolute -top-8 left-1/2 h-24 w-24 -translate-x-1/2 items-center justify-center rounded-full border p-2 shadow",
+                  {
+                    "border-zinc-600 bg-red-500": focused,
+                    "border-zinc-600 bg-zinc-800": !focused,
+                  },
+                )}
+              >
+                <AntDesign
+                  name="notification"
+                  size={40}
+                  className="flex scale-x-[-1]"
+                  color={focused ? colors.zinc[900] : colors.zinc[400]}
+                />
+              </View>
+            </View>
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="map"
+        options={{
+          title: "Sobre",
+          headerShown: false,
+          tabBarIcon: ({ color, size }) => (
+            <Feather size={size} name="map-pin" color={color} />
+          ),
+        }}
+      />
+    </Tabs>
+  );
+}

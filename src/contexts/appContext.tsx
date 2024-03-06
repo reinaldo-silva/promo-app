@@ -4,6 +4,7 @@ import {
   Poppins_500Medium,
   Poppins_600SemiBold,
   Poppins_700Bold,
+  Poppins_800ExtraBold,
   useFonts,
 } from "@expo-google-fonts/poppins";
 import * as SplashScreen from "expo-splash-screen";
@@ -27,6 +28,7 @@ export function AppContextProvider({ children }: PropsWithChildren) {
     Poppins_500Medium,
     Poppins_600SemiBold,
     Poppins_700Bold,
+    Poppins_800ExtraBold,
   });
   const { top } = useSafeAreaInsets();
 
@@ -50,10 +52,7 @@ export function AppContextProvider({ children }: PropsWithChildren) {
         }}
         initialMetrics={initialWindowMetrics}
       >
-        <StatusBar
-          barStyle="light-content"
-          backgroundColor={colors.zinc[900]}
-        />
+        <StatusBar barStyle="light-content" />
         {children}
       </SafeAreaProvider>
     </AppContext.Provider>

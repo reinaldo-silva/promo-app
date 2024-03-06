@@ -10,8 +10,10 @@
   },
   "dependencies": {
     "@expo-google-fonts/poppins": "^0.2.3",
+    "@react-native-async-storage/async-storage": "1.21.0",
     "axios": "^1.6.7",
     "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
     "expo": "~50.0.8",
     "expo-constants": "~15.4.5",
     "expo-font": "~11.10.3",
@@ -25,7 +27,8 @@
     "react-native-reanimated": "~3.6.2",
     "react-native-safe-area-context": "4.8.2",
     "react-native-screens": "~3.29.0",
-    "@react-native-async-storage/async-storage": "1.21.0"
+    "react-native-maps": "1.10.0",
+    "expo-location": "~16.5.5"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",

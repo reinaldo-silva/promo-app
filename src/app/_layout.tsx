@@ -24,7 +24,7 @@ export default function Layout() {
           }}
         />
         <Stack.Screen
-          name="index"
+          name="(tabs)"
           options={{
             headerShown: false,
           }}

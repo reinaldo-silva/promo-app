@@ -10,7 +10,6 @@ import { Logo } from "@components/Logo";
 import { SignInGithub } from "@components/SignInGithub";
 import { Text } from "@components/Text";
 import { useStorage } from "@hooks/useStorage";
-import { signIn } from "@services/session";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
@@ -18,10 +17,12 @@ export default function Home() {
 
   async function handleSignIn() {
     setLoading(true);
-    const user: any = await signIn().finally(() => setLoading(false));
-    await setStore(`token ${user.name}`);
+    // const user: any = await signIn().finally(() => setLoading(false));
+    setTimeout(async () => {
+      await setStore(`token Reinaldo`).finally(() => setLoading(false));
 
-    router.push("/");
+      router.push("/");
+    }, 1500);
   }
 
   return (

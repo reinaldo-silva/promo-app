@@ -43,21 +43,25 @@ const Button = forwardRef<TouchableOpacity, Props>(
         className={clsx(
           className,
           "relative flex h-14 flex-row items-center justify-between rounded-lg pr-10",
+          { "!pr-0": !icon },
         )}
         {...rest}
         onPressIn={onPressIn}
         onPressOut={onPressOut}
       >
-        {text ? (
-          <Animated.View
-            style={{ transform: [{ translateX: animatedValue }] }}
-            className="z-10 h-full flex-row items-center rounded-lg bg-red-500 pl-4 pr-8 shadow"
-          >
+        <Animated.View
+          style={{ transform: [{ translateX: !icon ? 0 : animatedValue }] }}
+          className={clsx(
+            "z-10 h-full flex-row items-center rounded-lg bg-red-500 pl-4 pr-8 shadow",
+            { "!pr-4": !icon },
+          )}
+        >
+          {text ? (
             <Text className="font-poppinsSemiBold !text-zinc-100">{text}</Text>
-          </Animated.View>
-        ) : (
-          children
-        )}
+          ) : (
+            children
+          )}
+        </Animated.View>
 
         {icon && (
           <View className="absolute right-0 top-0 flex h-full w-auto flex-row items-center rounded-r-lg bg-red-900 px-3">
