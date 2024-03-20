@@ -8,16 +8,20 @@ import {
   useFonts,
 } from "@expo-google-fonts/poppins";
 import * as SplashScreen from "expo-splash-screen";
-import { PropsWithChildren, createContext, useEffect } from "react";
+import { PropsWithChildren, createContext, useEffect, useState } from "react";
 import { StatusBar } from "react-native";
 import {
   SafeAreaProvider,
   initialWindowMetrics,
-  useSafeAreaInsets,
 } from "react-native-safe-area-context";
 import colors from "tailwindcss/colors";
 
-const AppContext = createContext({});
+interface AppContextProps {
+  handleShowSearch: () => void;
+  showSearch: boolean;
+}
+
+export const AppContext = createContext({} as AppContextProps);
 
 SplashScreen.preventAutoHideAsync();
 
@@ -30,7 +34,7 @@ export function AppContextProvider({ children }: PropsWithChildren) {
     Poppins_700Bold,
     Poppins_800ExtraBold,
   });
-  const { top } = useSafeAreaInsets();
+  const [showSearch, setShowSearch] = useState(false);
 
   useEffect(() => {
     if (fontsLoaded || fontError) {
@@ -42,11 +46,15 @@ export function AppContextProvider({ children }: PropsWithChildren) {
     return null;
   }
 
+  function handleShowSearch() {
+    setShowSearch((oldValue) => !oldValue);
+  }
+
   return (
-    <AppContext.Provider value={{}}>
+    <AppContext.Provider value={{ handleShowSearch, showSearch }}>
       <SafeAreaProvider
         style={{
-          paddingTop: top,
+          // paddingTop: top,
           backgroundColor: colors.zinc[900],
           flex: 1,
         }}

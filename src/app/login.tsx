@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { Link, router } from "expo-router";
 import { useState } from "react";
 import { ScrollView, View } from "react-native";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { Button } from "@components/Button";
 import { Heading } from "@components/Heading";
@@ -14,6 +15,7 @@ import { useStorage } from "@hooks/useStorage";
 export default function Home() {
   const [loading, setLoading] = useState(false);
   const { setStore } = useStorage("app:token");
+  const { top } = useSafeAreaInsets();
 
   async function handleSignIn() {
     setLoading(true);
@@ -26,7 +28,10 @@ export default function Home() {
   }
 
   return (
-    <View className={clsx("flex-1 items-start bg-zinc-900 p-4 pb-12 pt-2")}>
+    <View
+      className={clsx("flex-1 items-start bg-zinc-900 p-4 pb-12 pt-2")}
+      style={{ paddingTop: top }}
+    >
       <ScrollView className="py-4" automaticallyAdjustKeyboardInsets={true}>
         <Logo />
 

@@ -1,9 +1,9 @@
 import { MaterialCommunityIcons } from "@expo/vector-icons";
+import clsx from "clsx";
 import { View } from "react-native";
 import colors from "tailwindcss/colors";
 
 import { Text } from "@components/Text";
-import clsx from "clsx";
 
 interface Props {
   orientation?: "row" | "column";
@@ -12,10 +12,9 @@ interface Props {
 export function Logo({ orientation = "column" }: Props) {
   return (
     <View
-      className={clsx("w-full gap-2 px-4 py-2", {
-        "flex-col items-center": orientation === "column",
-        "absolute flex-row items-end border-b-[0.5px] border-zinc-800 bg-zinc-900/90 shadow-sm !backdrop-blur-2xl":
-          orientation === "row",
+      className={clsx("gap-2 px-4 py-2", {
+        "w-full flex-col items-center": orientation === "column",
+        "flex-row items-end": orientation === "row",
       })}
     >
       <MaterialCommunityIcons

@@ -12,16 +12,16 @@ export default function TabLayout() {
     <Tabs
       tabBar={({ insets, state, descriptors, navigation }) => {
         return (
-          <View
-            className="absolute w-full items-center"
-            style={{ paddingBottom: insets.bottom + 16, bottom: 0 }}
-          >
-            <View className="absolute left-0">
+          <>
+            <View className="absolute bottom-0 left-10 z-30">
               <Link href="/login">
                 <Text>Login</Text>
               </Link>
             </View>
-            <View className="flex-row gap-2 rounded-3xl border border-zinc-700 bg-zinc-800 p-2 shadow-sm">
+            <View
+              style={{ paddingBottom: insets.bottom }}
+              className="absolute bottom-0 w-full flex-row justify-evenly gap-2 border-t border-zinc-700 bg-zinc-800 shadow-sm"
+            >
               {state.routes.map((route, index) => {
                 const { options } = descriptors[route.key];
                 const isFocused = state.index === index;
@@ -75,7 +75,7 @@ export default function TabLayout() {
                 );
               })}
             </View>
-          </View>
+          </>
         );
       }}
     >

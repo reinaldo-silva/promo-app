@@ -1,6 +1,6 @@
 import { AppContextProvider } from "@/contexts/appContext";
 import "@/styles/global.css";
-import { Logo } from "@components/Logo";
+import { HeaderApp } from "@components/HeaderApp";
 import { Stack } from "expo-router";
 
 export default function Layout() {
@@ -29,7 +29,7 @@ export default function Layout() {
           options={{
             headerShown: true,
             header: (props) => {
-              return <Logo orientation="row" />;
+              return <HeaderApp />;
             },
           }}
         />
